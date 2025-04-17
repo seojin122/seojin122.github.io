@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form 테스트1</title>
+    <style>
+      h3 {
+        text-align: center;
+      }
+      .container {
+        display: flex;
+        /* justify-content: space-around; */
+        justify-content: center;
+        /* text-align: center; */
+        margin: 10px;
+        padding: 10px;
+      }
+      #form1 {
+        background-color: yellow;
+        width: 300px;
+        margin: 10px;
+        padding: 10px;
+      }
+      #form2 {
+        background-color: aqua;
+        width: 300px;
+        margin: 10px;
+        padding: 10px;
+      }
+    </style>
+    <script>
+      function submitForm1(event) {
+          event.preventDefault();
+
+          const email = document.getElementById("form1_email_id").value;
+          const name = document.getElementById("form1_name_id").value;
+          const message = document.getElementById("form1_message_id").value;
+          
+          const drinklist = []
+          const drink1 = document.getElementById("form1_drink_id1").checked? drinklist.push(document.getElementById("form1_drink_id1").value):"";
+          const drink2 = document.getElementById("form1_drink_id2").checked?drinklist.push(document.getElementById("form1_drink_id2").value):"";
+          const drink3 = document.getElementById("form1_drink_id3").checked?drinklist.push(document.getElementById("form1_drink_id3").value):"";
+          const drink_final = drinklist.join(',')
+
+          const study = document.getElementById("form1_study_id").value;
+
+          let call_michael = '';
+
+          if (document.getElementById("form1_michael_id1").checked) {
+              call_michael = document.getElementById("form1_michael_id1").value;
+          } else if (document.getElementById("form1_michael_id2").checked) {
+              call_michael = document.getElementById("form1_michael_id2").value;
+          } else if (document.getElementById("form1_michael_id3").checked) {
+              call_michael = document.getElementById("form1_michael_id3").value;
+          }
+
+          const subject = document.getElementById("form1_subject_id").value;
+// 배포된 웹앱 주소
+          fetch("https://script.google.com/macros/s/AKfycbyFmdFoZbZJqmH-8cqbqNKIs-WjgMZ5V-9Cr-BrbEBMqyfyRdLllnJWEYOcAJWwwSzkKQ/exec", {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+              },
+              body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&drink=${encodeURIComponent(drink_final)}&study=${encodeURIComponent(study)}&call_michael=${encodeURIComponent(call_michael)}&subject=${encodeURIComponent(subject)}`
+          }).then(response => {
+              alert("정보가 성공적으로 전송되었습니다!");
+          }).catch(error => {
+              alert("전송 실패: " + error.message);
+          });
+      }
+  </script>
+  <script>
+    function submitForm2(event) {
+      event.preventDefault();
+
+      const email2 = document.querySelector('[name="form2_email_name"]').value;
+      const name2 = document.querySelector('[name="form2_name_name"]').value;
+      const message2 = document.querySelector('[name="form2_message_name"]').value;
+
+      const drinks = document.querySelectorAll('[name="form2_drink_name"]:checked');
+      const drinklist2 = Array.from(drinks).map(el => el.value);
+      const drink_final2 = drinklist2.join(',');
+
+      const study2 = document.querySelector('[name="form2_study_name"]').value;
+      // optional chaining
+      const call_michael2 = document.querySelector('[name="form2_michael_name"]:checked')?.value || '';
+      const subject2 = document.querySelector('[name="form2_subject_name"]').value;
+      
+      fetch("https://script.google.com/macros/s/AKfycbwCnaheqXUapW0vhX9tqY7w1h5i-yu1v0l4wtkEqUSyPw5M3VBcc_8yAh0anE69dmH-kw/exec", {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+              },
+              body: `email=${encodeURIComponent(email2)}&name=${encodeURIComponent(name2)}&message=${encodeURIComponent(message2)}&drink=${encodeURIComponent(drink_final2)}&study=${encodeURIComponent(study2)}&call_michael=${encodeURIComponent(call_michael2)}&subject=${encodeURIComponent(subject2)}`
+          }).then(response => {
+              alert("정보가 성공적으로 전송되었습니다!");
+          }).catch(error => {
+              alert("전송 실패: " + error.message);
+          });
+    }
+    </script>
+    <script>
+      function submitForm2_2(event) {
+        event.preventDefault();
+        const form2 = document.forms["form2_name"]
+        // const form2 = document.forms[1];
+        // const form2 = document.forms.form2_name;
+        // const form2 = documentgetElementById("form2_id");.
+        
+        const email2 = form2.form2_email_name.value;
+        // const email2 = form2.elements["form2_email_name"].value;
+        const name2 = form2.form2_name_name.value;
+        const message2 = form2.form2_message_name.value;
+  
+        const drink_final2 = Array.from(form2.form2_drink_name).filter(el=> el.checked).map(el=>el.value).join(',');        
+        const study2 = form2.form2_study_name.value;
+        const call_michael2 = form2.form2_michael_name?.value || '';
+        const subject2 = form2.form2_subject_name.value;
+        
+        fetch("https://script.google.com/macros/s/AKfycbwCnaheqXUapW0vhX9tqY7w1h5i-yu1v0l4wtkEqUSyPw5M3VBcc_8yAh0anE69dmH-kw/exec", {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: `email=${encodeURIComponent(email2)}&name=${encodeURIComponent(name2)}&message=${encodeURIComponent(message2)}&drink=${encodeURIComponent(drink_final2)}&study=${encodeURIComponent(study2)}&call_michael=${encodeURIComponent(call_michael2)}&subject=${encodeURIComponent(subject2)}`
+            }).then(response => {
+                alert("정보가 성공적으로 전송되었습니다!");
+            }).catch(error => {
+                alert("전송 실패: " + error.message);
+            });
+      }
+  </script>
+
+  </head>
+  <h3>WebForm 예제</h3>
+  <div class="container">
+    <div id="form1">
+      <form id="form1_id" name="form1_name"  onsubmit="submitForm1(event)">
+        <fieldset>
+          <legend>수업중에 대답없는 당신</legend>
+          <label for="email">이메일:<br>
+            <input type="email" id="form1_email_id" name="form1_email_name" placeholder="id@duksung.ac.kr" required>
+          </label><br>
+          
+          <label>이름:<br>
+            <input type="text" id="form1_name_id" name="form1_name_name" placeholder="마이클" required>
+          </label><br>
+
+          <label>대답없는 이유는:<br>
+            <textarea rows=4 id="form1_message_id" name="form1_message_name" required>이유가 어딨어</textarea>
+          </label><br>
+          
+          어떤 걸 바치오면 대답을 하실건가요:<br>
+          <label>아메리카노<input type="checkbox" name="form1_drink_name" id="form1_drink_id1" value="아메리카노"></label><br>
+          <label>아이스티<input type="checkbox" name="form1_drink_name" id="form1_drink_id2" value="아이스티"></label><br>
+          <label>쌍화차<input type="checkbox" name="form1_drink_name" id="form1_drink_id3" value="쌍화차"></label><br>
+          <br>
+
+          방학 중 스터디를 한다면?: <br>
+          <input type="text" id = "form1_study_id" name="form1_study_name" list="studies"><br>
+          <datalist id="studies">
+              <option value="프론트엔드">
+              <option value="백엔드">
+              <option value="거대언어모델(LLM)">
+          </datalist>
+          <br>
+
+          마이클을 마이클이라고 부를 수 있다:<br>
+          <label>네<input type="radio" name="form1_michael_name" id="form1_michael_id1" value="네"></label><br>
+          <label>아니요<input type="radio" name="form1_michael_name"  id="form1_michael_id2" value="아니요"></label><br>
+          <label>네니요<input type="radio" name="form1_michael_name"  id="form1_michael_id3" value="네니요"></label><br>
+          <br>
+
+          이번학기 제일 좋아하는 과목은? : <br>
+          <select name="form1_subject_name" id="form1_subject_id">
+              <option value="인터넷기초">인터넷기초</option>
+              <option value="인터넷기초[04]">인터넷기초[04]</option>
+              <option value="마이클의 인터넷기초">마이클의 인터넷기초</option>
+          </select><br><br>
+          <button type="submit">제출</button>
+        </fieldset>
+      </form>
+    </div>
+    
+    <div id="form2">
+      <form id="form2_id" name="form2_name" onsubmit="submitForm2(event)">
+        <fieldset>
+          <legend>수업중에 대답하는 당신</legend>
+          <label for="email">이메일:<br>
+            <input type="email" id="form2_email_id" name="form2_email_name" placeholder="id@duksung.ac.kr" required>
+          </label><br>
+          
+          <label>이름:<br>
+            <input type="text" id="form2_name_id" name="form2_name_name" placeholder="마이클" required>
+          </label><br>
+
+          <label>대답하는 이유는:<br>
+            <textarea rows=4 id="form2_message_id" name="form2_message_name" required>일리가 이써!</textarea>
+          </label><br>
+          
+          대답하는 당신! 고르시오<br>
+          <label>아메리카노<input type="checkbox" name="form2_drink_name" id="form2_drink_id1" value="아메리카노"></label><br>
+          <label>아이스티<input type="checkbox" name="form2_drink_name" id="form2_drink_id2" value="아이스티"></label><br>
+          <label>쌍화차<input type="checkbox" name="form2_drink_name" id="form2_drink_id3" value="쌍화차"></label><br>
+          <br>
+
+          방학 중 스터디를 한다면?: <br>
+          <input type="text" id = "form2_study_id" name="form2_study_name" list="studies"><br>
+          <datalist id="studies">
+              <option value="프론트엔드">
+              <option value="백엔드">
+              <option value="거대언어모델(LLM)">
+          </datalist>
+          <br>
+
+          마이클을 마이클이라고 부를 수 있다:<br>
+          <label>네<input type="radio" name="form2_michael_name" id="form2_michael_id1" value="네"></label><br>
+          <label>아니요<input type="radio" name="form2_michael_name"  id="form2_michael_id2" value="아니요"></label><br>
+          <label>네니요<input type="radio" name="form2_michael_name"  id="form2_michael_id3" value="네니요"></label><br>
+          <br>
+
+          이번학기 제일 좋아하는 과목은? : <br>
+          <select name="form2_subject_name" id="form2_subject_id">
+              <option value="인터넷기초">인터넷기초</option>
+              <option value="인터넷기초[04]">인터넷기초[04]</option>
+              <option value="마이클의 인터넷기초">마이클의 인터넷기초</option>
+          </select><br><br>
+          <button type="submit">제출</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</html>

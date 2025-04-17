@@ -3,32 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <title>서진's Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> <!-- CSS 연결 -->
 </head>
 <body>
   <header>
     <h1>서진의 포트폴리오</h1>
     <nav>
       <ul>
+        <!-- 메뉴 목록 -->
         <li><a href="#about">1. 자기소개</a></li>
-        <li><a href="#projects">2. 프로젝트</a></li>
-        <li><a href="#contact">3. 연락처</a></li>
+        <li><a href="#school">2. 학력</a></li>
+        <li><a href="#projects">3. 프로젝트</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+    <!-- 자기소개 섹션 -->
     <section id="about">
       <h2>1. 자기소개</h2>
-      <img src="media/profile.jpg" alt="프로필 사진" class="profile-img">
+      <img src="media/profile.jpg" alt="프로필 사진" class="profile-img"> <!-- 프로필 사진 -->
+      <p>이메일: <a href="mailto:sunflower135@duksung.ac.kr">sunflower135@duksung.ac.kr</a></p>
+      <p>GitHub: <a href="https://github.com/seojin122/marin" target="_blank">github.com/seojin122/marin</a></p>
       <p>덕성여대 디지털소프트웨어학부 재학 중인 이서진입니다. 프론트엔드에 관심이 있으며 다양한 기술을 배우는 중입니다.</p>
     </section>
 
+    <!-- 학력 섹션 -->
+    <section id="school">
+      <h2>2.학력</h2>
+      <p>덕성여대 디지털소프트웨어학부 재학 </p>
+    </section>
+
+    <!-- 프로젝트 섹션 -->
     <section id="projects">
-      <h2>2. 프로젝트</h2>
+      <h2>3. 프로젝트</h2>
       <ol>
+        <!-- 프로젝트 목록 -->
         <li>
-          <strong><a href="form_test1.html">test</a></strong> 
+          <strong><a href="form_test1.html">test</a></strong>  - 설문조사를 해주세요.
         </li>
         <li>
           <strong><a href="https://www.notion.so/45adbf413e9946588496add1ffd84f49">노션 페이지</a></strong> - 노션에 만든 포폴입니다.
@@ -41,6 +53,7 @@
         </li>
       </ol>
 
+      <!-- 프로젝트 설명 표 -->
       <table border="1">
         <thead>
           <tr>
@@ -53,21 +66,20 @@
           <tr>
             <td>React 독서 앱</td>
             <td><img src="media/project1.png" alt="포트폴리오 이미지" width="400"></td>
-            <td>독서 관련, 배포는 못함.</td>
+            <td>독서 관련, 배포는 못함.
+              <li>
+              <strong><a href="https://github.com/seojin122/seojin122.github.io" target="_blank">깃허브</a></strong>
+              </li>
+            </td>
           </tr>
         </tbody>
       </table>
     </section>
-
-    <section id="contact">
-      <h2>3. 연락처</h2>
-      <p>이메일: <a href="mailto:sunflower135@duksung.ac.kr">sunflower135@duksung.ac.kr</a></p>
-      <p>GitHub: <a href="https://github.com/seojin122/marin" target="_blank">github.com/seojin122/marin</a></p>
-    </section>
   </main>
 
+  <!-- 푸터 -->
   <footer>
-    <p>&copy; 2025 이서진. All rights reserved.</p>
+    <p>&copy; 2025 sunflower135@duksung.ac.kr 이서진. All rights reserved.</p>
   </footer>
 </body>
 </html>
