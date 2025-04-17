@@ -32,7 +32,8 @@
     text-decoration: none;
     font-weight: bold;
   }
-  
+
+
   .hero {
     text-align: center;
     margin: 40px 0;
@@ -76,3 +77,28 @@
     margin-top: 50px;
   }
   
+
+
+
+  /* main 영역을 중앙 정렬하는 클래스 */
+.centered-content {
+  width: 80%; /* main 영역의 너비 설정 */
+  max-width: 1200px; /* 최대 너비 */
+  margin: 0 auto; /* 가로로 중앙 정렬 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+/* 테이블 스타일 */
+table {
+  width: 80%; /* 테이블의 너비를 80%로 설정 */
+  margin: 20px auto; /* 테이블을 중앙 정렬 */
+  border-collapse: collapse; /* 테이블 경계선 중복 방지 */
+}
+
+table td:hover,
+table th:hover {
+  background-color: #e0f0ff; /* 마우스를 올렸을 때 연한 파란색 배경 */
+  cursor: pointer; /* 마우스를 포인터로 변경 */
+  transition: background-color 0.2s ease-in-out;
+}
+

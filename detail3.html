@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>프로젝트 상세보기</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> <!-- 외부 CSS 파일 연결 -->
 </head>
 <body>
   <header>
     <h1>포트폴리오 웹사이트 상세 설명</h1>
+    <!-- 메인 페이지로 돌아가는 링크 -->
     <a href="index.html">← 메인으로 돌아가기</a>
   </header>
 
-  <main>
+  <main class="centered-content">
     <section>
         <h2>활동내역</h2>
+        <!-- 활동 내용을 표로 정리 -->
         <table border="1">
           <thead>
             <tr>
@@ -23,6 +25,7 @@
             </tr>
           </thead>
           <tbody>
+            <!-- 각 활동 항목을 한 줄씩 표시 -->
             <tr>
               <td>1</td>
               <td>2024년 한강하구 생태환경 물길투어</td>
@@ -70,11 +73,16 @@
             </tr>
           </tbody>
         </table>
+
+        <!-- 외부 기사 내용을 iframe으로 삽입 -->
+        <h3>관련 기사 보기</h3>
+        <iframe src="https://www.newsis.com/view/NISX20241125_0002971290" width="1000" height="500" title="알라딘 사이트"></iframe>
         
       
     </section>
 
     <section>
+      <!-- 프로젝트 관련 이미지 표시 -->
       <h2>관련 정보 (iframe)</h2>
       <img src="media/project2.png" alt="포트폴리오 이미지" width="500">
     </section>

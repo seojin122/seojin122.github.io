@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Form 테스트2</title>
+    <title>Form</title>
     <style>
+      /* 스타일 설정 */
       h3 {
         text-align: center;
       }
@@ -20,14 +21,18 @@
       }
     </style>
     <script>
+      // 폼 제출 처리 함수
       function submitJobForm(event) {
         event.preventDefault();
 
+        // 이메일 값 가져오기
         const email = document.getElementById("job_email").value;
+        // 이름 값 가져오기
         const name = document.getElementById("job_name").value;
+        // 자기소개 값 가져오기
         const message = document.getElementById("job_message").value;
 
-
+         // 폼 데이터를 외부 서버로 전송
         fetch("https://script.google.com/macros/s/AKfycbyFmdFoZbZJqmH-8cqbqNKIs-WjgMZ5V-9Cr-BrbEBMqyfyRdLllnJWEYOcAJWwwSzkKQ/exec", {
           method: "POST",
           headers: {
@@ -35,7 +40,7 @@
           },
           body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}`
         }).then(() => {
-          alert("제출되었습니다! 응원합니다 :)");
+          alert("제출되었습니다!");
         }).catch(error => {
           alert("전송 실패: " + error.message);
         });
@@ -43,12 +48,13 @@
     </script>
   </head>
   <body>
-    <h3>취업 준비 설문</h3>
+    <h3>설문</h3>
     <div class="container">
       <div id="job_form">
         <form id="job_form_id" name="job_form_name" onsubmit="submitJobForm(event)">
+          <!-- 폼 시작 -->
           <fieldset>
-            <legend>취업 준비 중인 당신</legend>
+            <legend>당신이 궁금합니다.</legend>
 
             <label>이메일:<br>
               <input type="email" id="job_email" name="email" placeholder="id@domain.com" required>
@@ -62,6 +68,7 @@
               <textarea id="job_message" name="message" rows="4" placeholder="간단히 적어주세요" required></textarea>
             </label><br><br>
 
+            <!-- 제출 버튼 -->
             <button type="submit">제출하기</button>
           </fieldset>
         </form>

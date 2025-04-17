@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta name="이서진" charset="UTF-8">
+  <meta charset="UTF-8">
+
   <title>프로젝트 상세보기</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> <!-- 외부 CSS 파일 연결 -->
 </head>
 <body>
   <header>
+    <!-- 웹페이지 상단 제목과 메인 페이지로 돌아가는 링크 -->
     <h1>포트폴리오 웹사이트 상세 설명</h1>
     <a href="index.html">← 메인으로 돌아가기</a>
   </header>
 
-  <main>
-    <section>
+  <main class="centered-content">
+      <section>
+      <!-- 주요 기능 목록을 나열 -->
       <h2>기능 및 구성</h2>
       <ul>
         <li>목차 기반 앵커 연결</li>
@@ -24,6 +27,41 @@
     </section>
 
     <section>
+      <h2>프로젝트 정보</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>항목</th>
+            <th>내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>프로젝트명</td>
+            <td>React 독서 앱</td>
+          </tr>
+          <tr>
+            <td>사용 기술</td>
+            <td>React, JavaScript, HTML, CSS</td>
+          </tr>
+          <tr>
+            <td>API</td>
+            <td><a href="https://www.aladin.co.kr" target="_blank">알라딘 API</a></td>
+          </tr>
+          <tr>
+            <td>GitHub 링크</td>
+            <td><a href="https://github.com/seojin122/seojin122.github.io" target="_blank">깃허브 저장소</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+
+
+    <section>
+
+      <!-- 이미지와 iframe 등 관련 정보를 보여주는 영역 -->
       <h2>관련 정보 (iframe)</h2>
       <img src="media/project1.png" alt="포트폴리오 이미지" width="500">
     </section>
